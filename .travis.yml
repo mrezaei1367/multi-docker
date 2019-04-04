@@ -20,4 +20,3 @@ after_success:
   - docker push mrezaei67/multi-nginx
   - docker push mrezaei67/multi-server
   - docker push mrezaei67/multi-worker
-  
