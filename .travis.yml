@@ -2,21 +2,21 @@ sudo: required
 services:
     - docker
 before_install:
-  - docker build -t rezaei/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t mrezaei67/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run rezaei/react-test npm test -- --coverage
+  - docker run mrezaei67/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t rezaei/multi-client ./client
-  - docker build -t rezaei/multi-nginx ./nginx
-  - docker build -t rezaei/multi-server ./server
-  - docker build -t rezaei/multi-worker ./worker
+  - docker build -t mrezaei67/multi-client ./client
+  - docker build -t mrezaei67/multi-nginx ./nginx
+  - docker build -t mrezaei67/multi-server ./server
+  - docker build -t mrezaei67/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # take image and push to docker hub
-  - docker push rezaei/multi-client
-  - docker push rezaei/multi-nginx
-  - docker push rezaei/multi-server
-  - docker push rezaei/multi-worker
+  - docker push mrezaei67/multi-client
+  - docker push mrezaei67/multi-nginx
+  - docker push mrezaei67/multi-server
+  - docker push mrezaei67/multi-worker
